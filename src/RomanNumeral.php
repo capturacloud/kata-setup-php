@@ -12,6 +12,10 @@ final class RomanNumeral
             return 'IV';
         }
 
+        if ($input === 10) {
+            return 'X';
+        }
+
         $result = '';
 
         if ($input >= 5) {
