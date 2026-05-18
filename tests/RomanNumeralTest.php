@@ -57,4 +57,11 @@ final class RomanNumeralTest extends TestCase
 
         self::assertEquals('VI', $roman->convert(6));
     }
+    #[Test]
+    public function it_should_return_VII_when_7_given(): void
+    {
+        $roman = new RomanNumeral();
+
+        self::assertEquals('VII', $roman->convert(7));
+    }
 }
