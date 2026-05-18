@@ -33,4 +33,12 @@ final class RomanNumeralTest extends TestCase
 
         self::assertEquals('III', $roman->convert(3));
     }
+
+    #[Test]
+    public function it_should_return_IV_when_4_given(): void
+    {
+        $roman = new RomanNumeral();
+
+        self::assertEquals('IV', $roman->convert(4));
+    }
 }
