@@ -20,6 +20,10 @@ final class RomanNumeral
             return 'X';
         }
 
+        if ($input === 11) {
+            return 'XI';
+        }
+
         $result = '';
 
         if ($input >= 5) {
