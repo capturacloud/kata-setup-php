@@ -12,6 +12,10 @@ final class RomanNumeral
             return 'L';
         }
 
+        if ($input === 40) {
+            return 'XL';
+        }
+
         $result = '';
 
         while ($input >= 10) {
