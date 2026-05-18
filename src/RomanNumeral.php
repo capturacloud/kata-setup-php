@@ -14,22 +14,17 @@ final class RomanNumeral
 
         $result = '';
 
-        if ($input >= 20) {
-            $result .= 'XX';
-            $input -= 20;
-        }
-
-        if ($input >= 10) {
+        while ($input >= 10) {
             $result .= 'X';
             $input -= 10;
         }
 
-        if ($input === 4) {
-            return $result . 'IV';
-        }
-
         if ($input === 9) {
             return $result . 'IX';
+        }
+
+        if ($input === 4) {
+            return $result . 'IV';
         }
 
         if ($input >= 5) {
@@ -37,8 +32,9 @@ final class RomanNumeral
             $input -= 5;
         }
 
-        for ($i = 0; $i < $input; $i++) {
+        while ($input >= 1) {
             $result .= 'I';
+            $input--;
         }
 
         return $result;
