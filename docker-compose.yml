@@ -1,0 +1,11 @@
+services:
+  kata-setup-php:
+    build: .
+    container_name: kata-setup-php
+    hostname: php
+    user: ${UID}:${GID}
+    volumes:
+      - .:/srv/kata-setup-php:delegated
+    environment:
+      XDEBUG_MODE: debug
+      XDEBUG_SESSION: PHPSTORM

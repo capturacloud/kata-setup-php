@@ -1,0 +1,29 @@
+{
+    "description": "Base project for the CapturaCloud development team to practice katas in PHP.",
+    "name": "capturacloud/kata-setup-php",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "scaffolding"
+    ],
+    "require": {
+        "php": ">=8.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KataTests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "XDEBUG_MODE=off ./vendor/bin/phpunit"
+    }
+}
