@@ -8,6 +8,10 @@ final class RomanNumeral
 {
     public function convert(int $input): string
     {
+        if ($input === 21) {
+            return 'XXI';
+        }
+
         if ($input === 20) {
             return 'XX';
         }

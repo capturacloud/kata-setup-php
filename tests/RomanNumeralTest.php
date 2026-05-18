@@ -27,6 +27,7 @@ final class RomanNumeralTest extends TestCase
         yield '14' => [14, 'XIV'];
         yield '19' => [19, 'XIX'];
         yield '20' => [20, 'XX'];
+        yield '21' => [21, 'XXI'];
     }
 
     #[Test]
