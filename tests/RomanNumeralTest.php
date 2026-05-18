@@ -26,6 +26,7 @@ final class RomanNumeralTest extends TestCase
         yield '17' => [17, 'XVII'];
         yield '14' => [14, 'XIV'];
         yield '19' => [19, 'XIX'];
+        yield '20' => [20, 'XX'];
     }
 
     #[Test]
@@ -36,6 +37,4 @@ final class RomanNumeralTest extends TestCase
 
         self::assertEquals($roman, $sut->convert($arabic));
     }
-
-
 }
