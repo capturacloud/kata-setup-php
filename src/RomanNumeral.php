@@ -8,14 +8,12 @@ final class RomanNumeral
 {
     public function convert(int $input): string
     {
-        if ($input === 2) {
-            return 'II';
+        $return = '';
+
+        for ($i = 0; $i < $input; $i++) {
+            $return .= 'I';
         }
 
-        if ($input === 3) {
-            return 'III';
-        }
-
-        return 'I';
+        return $return;
     }
 }
