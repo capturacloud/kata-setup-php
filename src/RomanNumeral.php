@@ -16,15 +16,12 @@ final class RomanNumeral
             return 'IX';
         }
 
-        if ($input === 10) {
-            return 'X';
-        }
-
-        if ($input === 11) {
-            return 'XI';
-        }
-
         $result = '';
+
+        if ($input >= 10) {
+            $result .= 'X';
+            $input -= 10;
+        }
 
         if ($input >= 5) {
             $result .= 'V';

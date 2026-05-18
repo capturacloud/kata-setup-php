@@ -81,11 +81,20 @@ final class RomanNumeralTest extends TestCase
 
         self::assertEquals('IX', $roman->convert(9));
     }
+
     #[Test]
     public function it_should_return_XI_when_11_given(): void
     {
         $roman = new RomanNumeral();
 
         self::assertEquals('XI', $roman->convert(11));
+    }
+
+    #[Test]
+    public function it_should_return_XVII_when_17_given(): void
+    {
+        $roman = new RomanNumeral();
+
+        self::assertEquals('XVII', $roman->convert(17));
     }
 }
