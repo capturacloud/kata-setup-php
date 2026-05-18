@@ -8,23 +8,19 @@ final class RomanNumeral
 {
     public function convert(int $input): string
     {
-        if ($input === 4) {
-            return 'IV';
-        }
-
-        if ($input === 9) {
-            return 'IX';
-        }
-
-        if ($input === 14) {
-            return 'XIV';
-        }
-
         $result = '';
 
         if ($input >= 10) {
             $result .= 'X';
             $input -= 10;
+        }
+
+        if ($input === 4) {
+            return $result . 'IV';
+        }
+
+        if ($input === 9) {
+            return $result . 'IX';
         }
 
         if ($input >= 5) {
