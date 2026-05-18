@@ -8,28 +8,21 @@ final class RomanNumeral
 {
     public function convert(int $input): string
     {
-        if ($input === 7) {
-            return 'VII';
-        }
-
-        if ($input === 6) {
-            return 'VI';
-        }
-
-        if ($input === 5) {
-            return 'V';
-        }
-
         if ($input === 4) {
             return 'IV';
         }
 
-        $return = '';
+        $result = '';
 
-        for ($i = 0; $i < $input; $i++) {
-            $return .= 'I';
+        if ($input >= 5) {
+            $result .= 'V';
+            $input -= 5;
         }
 
-        return $return;
+        for ($i = 0; $i < $input; $i++) {
+            $result .= 'I';
+        }
+
+        return $result;
     }
 }
