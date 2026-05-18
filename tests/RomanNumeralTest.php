@@ -35,6 +35,7 @@ final class RomanNumeralTest extends TestCase
         yield '40' => [40, 'XL'];
         yield '47' => [47, 'XLVII'];
         yield '50' => [50, 'L'];
+        yield '53' => [53, 'LIII'];
     }
 
     #[Test]

@@ -8,11 +8,13 @@ final class RomanNumeral
 {
     public function convert(int $input): string
     {
-        if ($input === 50) {
-            return 'L';
-        }
 
         $result = '';
+
+        if ($input >= 50) {
+            $result .= 'L';
+            $input -= 50;
+        }
 
         if ($input >= 40) {
             $result .= 'XL';
