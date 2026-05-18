@@ -6,42 +6,26 @@ namespace Kata;
 
 final class RomanNumeral
 {
+    public const array EQUIVALENCES = [
+        100 => 'C',
+        50 => 'L',
+        40 => 'XL',
+        10 => 'X',
+        9 => 'IX',
+        5 => 'V',
+        4 => 'IV',
+        1 => 'I',
+    ];
+
     public function convert(int $input): string
     {
-
         $result = '';
 
-        if ($input >= 50) {
-            $result .= 'L';
-            $input -= 50;
-        }
-
-        if ($input >= 40) {
-            $result .= 'XL';
-            $input -= 40;
-        }
-
-        while ($input >= 10) {
-            $result .= 'X';
-            $input -= 10;
-        }
-
-        if ($input === 9) {
-            return $result . 'IX';
-        }
-
-        if ($input === 4) {
-            return $result . 'IV';
-        }
-
-        if ($input >= 5) {
-            $result .= 'V';
-            $input -= 5;
-        }
-
-        while ($input >= 1) {
-            $result .= 'I';
-            $input--;
+        foreach (self::EQUIVALENCES as $arabic => $roman) {
+            while ($input >= $arabic) {
+                $result .= $roman;
+                $input -= $arabic;
+            }
         }
 
         return $result;
