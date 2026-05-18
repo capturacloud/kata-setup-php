@@ -20,14 +20,17 @@ final class RomanNumeralTest extends TestCase
         yield '5' => [5, 'V'];
         yield '6' => [6, 'VI'];
         yield '7' => [7, 'VII'];
-        yield '10' => [10, 'X'];
         yield '9' => [9, 'IX'];
+        yield '10' => [10, 'X'];
         yield '11' => [11, 'XI'];
-        yield '17' => [17, 'XVII'];
         yield '14' => [14, 'XIV'];
+        yield '17' => [17, 'XVII'];
         yield '19' => [19, 'XIX'];
         yield '20' => [20, 'XX'];
         yield '21' => [21, 'XXI'];
+        yield '22' => [22, 'XXII'];
+        yield '24' => [24, 'XXIV'];
+        yield '29' => [29, 'XXIX'];
     }
 
     #[Test]
