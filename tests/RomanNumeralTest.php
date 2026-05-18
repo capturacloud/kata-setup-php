@@ -4,113 +4,38 @@ declare(strict_types=1);
 
 namespace KataTests;
 
+use Generator;
 use Kata\RomanNumeral;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 final class RomanNumeralTest extends TestCase
 {
-    #[Test]
-    public function it_should_return_I_when_1_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('I', $roman->convert(1));
+    public static function arabicRomanProvider(): Generator {
+        yield '1' => [1, 'I'];
+        yield '2' => [2, 'II'];
+        yield '3' => [3, 'III'];
+        yield '4' => [4, 'IV'];
+        yield '5' => [5, 'V'];
+        yield '6' => [6, 'VI'];
+        yield '7' => [7, 'VII'];
+        yield '10' => [10, 'X'];
+        yield '9' => [9, 'IX'];
+        yield '11' => [11, 'XI'];
+        yield '17' => [17, 'XVII'];
+        yield '14' => [14, 'XIV'];
+        yield '19' => [19, 'XIX'];
     }
 
     #[Test]
-    public function it_should_return_II_when_2_given(): void
+    #[DataProvider('arabicRomanProvider')]
+    public function it_should_convert_from_arabic_to_roman(int $arabic, string $roman): void
     {
-        $roman = new RomanNumeral();
+        $sut = new RomanNumeral();
 
-        self::assertEquals('II', $roman->convert(2));
+        self::assertEquals($roman, $sut->convert($arabic));
     }
 
-    #[Test]
-    public function it_should_return_III_when_3_given(): void
-    {
-        $roman = new RomanNumeral();
 
-        self::assertEquals('III', $roman->convert(3));
-    }
-
-    #[Test]
-    public function it_should_return_IV_when_4_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('IV', $roman->convert(4));
-    }
-
-    #[Test]
-    public function it_should_return_V_when_5_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('V', $roman->convert(5));
-    }
-
-    #[Test]
-    public function it_should_return_VI_when_6_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('VI', $roman->convert(6));
-    }
-
-    #[Test]
-    public function it_should_return_VII_when_7_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('VII', $roman->convert(7));
-    }
-
-    #[Test]
-    public function it_should_return_X_when_10_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('X', $roman->convert(10));
-    }
-
-    #[Test]
-    public function it_should_return_IX_when_9_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('IX', $roman->convert(9));
-    }
-
-    #[Test]
-    public function it_should_return_XI_when_11_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('XI', $roman->convert(11));
-    }
-
-    #[Test]
-    public function it_should_return_XVII_when_17_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('XVII', $roman->convert(17));
-    }
-
-    #[Test]
-    public function it_should_return_XIV_when_14_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('XIV', $roman->convert(14));
-    }
-
-    #[Test]
-    public function it_should_return_XIX_when_19_given(): void
-    {
-        $roman = new RomanNumeral();
-
-        self::assertEquals('XIX', $roman->convert(19));
-    }
 }
