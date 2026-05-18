@@ -36,10 +36,18 @@ final class RomanNumeralTest extends TestCase
         yield '47' => [47, 'XLVII'];
         yield '50' => [50, 'L'];
         yield '53' => [53, 'LIII'];
+        yield '80' => [80, 'LXXX'];
         yield '89' => [89, 'LXXXIX'];
+        yield '90' => [90, 'XC'];
         yield '100' => [100, 'C'];
         yield '200' => [200, 'CC'];
+        yield '294' => [294, 'CCXCIV'];
         yield '300' => [300, 'CCC'];
+        yield '400' => [400, 'CD'];
+        yield '500' => [500, 'D'];
+        yield '900' => [900, 'CM'];
+        yield '1000' => [1000, 'M'];
+        yield '2019' => [2019, 'MMXIX'];
     }
 
     #[Test]
