@@ -34,4 +34,13 @@ final class StackTest extends TestCase
 
         self::assertEquals(null, $stack->peek());
     }
+
+    #[TEST]
+    public function peek_should_return_last_pushed_element(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+
+        self::assertEquals('hello', $stack->peek());
+    }
 }

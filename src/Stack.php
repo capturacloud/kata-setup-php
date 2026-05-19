@@ -6,6 +6,8 @@ namespace Kata;
 
 final class Stack {
 private bool $pushed = false;
+private mixed $element = null;
+
     public function size(): int
     {
         if ($this->pushed) {
@@ -16,9 +18,10 @@ private bool $pushed = false;
 
     public function push(mixed $element): void {
         $this->pushed = true;
+        $this->element = $element;
     }
 
     public function peek(): mixed {
-        return null;
+        return $this->element;
     }
 }
