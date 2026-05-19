@@ -101,4 +101,14 @@ final class StackTest extends TestCase
 
         self::assertEquals('hello', $stack->pop());
     }
+
+    #[TEST]
+    public function pop_should_return_second_pushed_element_when_two_pushes(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+        $stack->push('world');
+
+        self::assertEquals('world', $stack->pop());
+    }
 }
