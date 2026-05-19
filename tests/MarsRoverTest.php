@@ -33,4 +33,9 @@ final class MarsRoverTest extends TestCase
     {
         self::assertSame('0:0:N', new MarsRover()->execute('LLLL'));
     }
+
+    public function test_R_command_returns_landing_position_facing_east(): void
+    {
+        self::assertSame('0:0:E', new MarsRover()->execute('R'));
+    }
 }

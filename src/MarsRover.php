@@ -11,7 +11,7 @@ final class MarsRover
         return match ($command) {
             'L' => '0:0:W',
             'LL' => '0:0:S',
-            'LLL' => '0:0:E',
+            'LLL', 'R' => '0:0:E',
             default => '0:0:N',
         };
     }
