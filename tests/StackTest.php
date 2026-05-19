@@ -14,6 +14,16 @@ final class StackTest extends TestCase
     public function size_should_return_0_on_a_new_stack(): void
     {
         $stack = new Stack();
+
         self::assertEquals(0, new Stack()->size());
+    }
+
+    #[TEST]
+    public function size_should_return_1_when_one_push_realized(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+
+        self::assertEquals(1, $stack->size());
     }
 }
