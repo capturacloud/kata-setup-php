@@ -28,6 +28,10 @@ final class MarsRover
             default => 'N',
         };
 
+        if ($command[0] !== 'M') {
+            return "$numberOfMovements:0:$facingDirection";
+        }
+
         return "0:$numberOfMovements:$facingDirection";
     }
 }
