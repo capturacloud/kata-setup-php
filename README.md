@@ -1,4 +1,4 @@
-# Kata Setup PHP
+# PHP Kata Setup
 
 Base project for the CapturaCloud development team to practice katas in PHP.
 
