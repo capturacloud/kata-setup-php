@@ -28,6 +28,16 @@ final class StackTest extends TestCase
     }
 
     #[TEST]
+    public function size_should_return_null_when_one_push_and_one_pop_realized(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+        $stack->pop();
+
+        self::assertEquals(null, $stack->size());
+    }
+
+    #[TEST]
     public function peek_should_return_null_on_a_new_stack(): void
     {
         $stack = new Stack();

@@ -24,4 +24,8 @@ private mixed $element = null;
     public function peek(): mixed {
         return $this->element;
     }
+
+    public function pop(): mixed {
+        return $this->pushed = false;
+    }
 }
