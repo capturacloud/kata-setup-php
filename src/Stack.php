@@ -17,4 +17,8 @@ private bool $pushed = false;
     public function push(mixed $element): void {
         $this->pushed = true;
     }
+
+    public function peek(): mixed {
+        return null;
+    }
 }

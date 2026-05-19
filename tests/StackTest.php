@@ -15,7 +15,7 @@ final class StackTest extends TestCase
     {
         $stack = new Stack();
 
-        self::assertEquals(0, new Stack()->size());
+        self::assertEquals(0, $stack->size());
     }
 
     #[TEST]
@@ -25,5 +25,13 @@ final class StackTest extends TestCase
         $stack->push('hello');
 
         self::assertEquals(1, $stack->size());
+    }
+
+    #[TEST]
+    public function peek_should_return_null_on_a_new_stack(): void
+    {
+        $stack = new Stack();
+
+        self::assertEquals(null, $stack->peek());
     }
 }
