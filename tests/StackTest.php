@@ -64,4 +64,12 @@ final class StackTest extends TestCase
 
         self::assertEquals('hello', $stack->peek());
     }
+
+    #[TEST]
+    public function empty_should_return_true_on_new_stack(): void
+    {
+        $stack = new Stack();
+
+        self::assertEquals(true, $stack->isEmpty());
+    }
 }
