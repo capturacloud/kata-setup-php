@@ -46,7 +46,7 @@ final class StackTest extends TestCase
     }
 
     #[TEST]
-    public function peek_should_return_first_pushed_element(): void
+    public function peek_should_return_last_pushed_element(): void
     {
         $stack = new Stack();
         $stack->push('hello');
