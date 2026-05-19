@@ -8,12 +8,15 @@ final class MarsRover
 {
     public function execute(string $command): string
     {
-        if ($command === 'M') {
-            return '0:1:N';
-        }
+        $currentPosition =  match ($command) {
+            'M' => '0:1:N',
+            'MM' => '0:2:N',
+            'MMM' => '0:3:N',
+            default => null,
+        };
 
-        if ($command === 'MM') {
-            return '0:2:N';
+        if ($currentPosition !== null) {
+            return $currentPosition;
         }
 
         $numberOfLefts = substr_count($command, 'L');
