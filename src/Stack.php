@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Kata;
 
 final class Stack {
-private bool $pushed = false;
 private mixed $element = null;
 private int $counter = 0;
 
@@ -17,7 +16,6 @@ private int $counter = 0;
         if ($this->counter === 0) {
             $this->element = $element;
         }
-        $this->pushed = true;
         $this->counter++;
     }
 
