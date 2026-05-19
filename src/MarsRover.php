@@ -8,15 +8,11 @@ final class MarsRover
 {
     public function execute(string $command): string
     {
-        if ($command === 'LLL') {
-            return '0:0:E';
-        }
-        if ($command === 'LL') {
-            return '0:0:S';
-        }
-        if ($command) {
-            return '0:0:W';
-        }
-        return '0:0:N';
+        return match ($command) {
+            'L' => '0:0:W',
+            'LL' => '0:0:S',
+            'LLL' => '0:0:E',
+            default => '0:0:N',
+        };
     }
 }
