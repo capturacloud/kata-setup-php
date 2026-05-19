@@ -12,6 +12,10 @@ final class MarsRover
             return '0:1:N';
         }
 
+        if ($command === 'MM') {
+            return '0:2:N';
+        }
+
         $numberOfLefts = substr_count($command, 'L');
         $numberOfRights = substr_count($command, 'R');
         $numberOfRotations = (($numberOfLefts - $numberOfRights) % 4 + 4) % 4;

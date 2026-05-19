@@ -63,4 +63,9 @@ final class MarsRoverTest extends TestCase
     {
         self::assertSame('0:1:N', new MarsRover()->execute('M'));
     }
+
+    public function test_MM_command_returns_02N(): void
+    {
+        self::assertSame('0:2:N', new MarsRover()->execute('MM'));
+    }
 }
