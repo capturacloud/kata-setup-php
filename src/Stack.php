@@ -13,10 +13,6 @@ private array $elements = [];
     }
 
     public function push(mixed $element): void {
-        if ($this->counter === 0) {
-            $this->element = $element;
-        }
-
         $this->elements[] = $element;
         $this->counter++;
     }
