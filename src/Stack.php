@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace Kata;
 
 final class Stack {
-private int $counter = 0;
 private array $elements = [];
 
     public function size(): int {
-        return $this->counter;
+        return count($this->elements);
     }
 
     public function push(mixed $element): void {
         $this->elements[] = $element;
-        $this->counter++;
     }
 
     public function peek(): mixed {
@@ -22,11 +20,10 @@ private array $elements = [];
     }
 
     public function pop(): mixed {
-        $this->counter--;
         return array_pop($this->elements);
     }
 
     public function isEmpty(): bool {
-        return $this->counter === 0;
+        return empty($this->elements);
     }
 }
