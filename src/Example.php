@@ -6,7 +6,6 @@ namespace Kata;
 
 final class Example
 {
-
     public function method(): bool
     {
         return true;
