@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Kata;
 
 final class Stack {
-private mixed $element = null;
 private int $counter = 0;
 private array $elements = [];
 
