@@ -72,4 +72,13 @@ final class StackTest extends TestCase
 
         self::assertEquals(true, $stack->isEmpty());
     }
+
+    #[TEST]
+    public function empty_should_return_false_when_one_push(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+
+        self::assertEquals(false, $stack->isEmpty());
+    }
 }

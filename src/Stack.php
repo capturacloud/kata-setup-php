@@ -35,6 +35,9 @@ private int $counter = 0;
     }
 
     public function isEmpty(): bool{
+        if ($this->pushed) {
+            return false;
+        }
         return true;
     }
 }
