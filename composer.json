@@ -3,9 +3,11 @@
     "name": "capturacloud/kata-setup-php",
     "type": "project",
     "license": "MIT",
-    "keywords": [
-        "php",
-        "scaffolding"
+    "authors": [
+        {
+            "name": "CapturaCloud",
+            "email": "devs@capturacloud.com"
+        }
     ],
     "require": {
         "php": ">=8.5"
