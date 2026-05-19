@@ -9,12 +9,8 @@ private bool $pushed = false;
 private mixed $element = null;
 private int $counter = 0;
 
-    public function size(): int
-    {
-        if ($this->pushed) {
-            return 1;
-        }
-        return 0;
+    public function size(): int {
+        return $this->counter;
     }
 
     public function push(mixed $element): void {
@@ -31,10 +27,10 @@ private int $counter = 0;
 
     public function pop(): mixed {
         $this->counter--;
-        return $this->pushed = false;
+        return $this->element;
     }
 
-    public function isEmpty(): bool{
+    public function isEmpty(): bool {
         return $this->counter === 0;
     }
 }

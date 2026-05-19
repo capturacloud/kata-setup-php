@@ -92,4 +92,13 @@ final class StackTest extends TestCase
 
         self::assertEquals(false, $stack->isEmpty());
     }
+
+    #[TEST]
+    public function pop_should_return_one_pushed_element(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+
+        self::assertEquals('hello', $stack->pop());
+    }
 }
