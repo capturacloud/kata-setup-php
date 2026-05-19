@@ -55,6 +55,16 @@ final class StackTest extends TestCase
     }
 
     #[TEST]
+    public function peek_should_return_last_pushed_element_two_pushes(): void
+    {
+        $stack = new Stack();
+        $stack->push('hello');
+        $stack->push('world');
+
+        self::assertEquals('world', $stack->peek());
+    }
+
+    #[TEST]
     public function peek_should_return_first_pushed_element_when_two_push_and_one_pop(): void
     {
         $stack = new Stack();

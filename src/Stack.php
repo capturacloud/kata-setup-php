@@ -17,18 +17,18 @@ private array $elements = [];
         if ($this->counter === 0) {
             $this->element = $element;
         }
-        $this->elements[0] = $element;
 
+        $this->elements[] = $element;
         $this->counter++;
     }
 
     public function peek(): mixed {
-        return $this->element;
+        return end($this->elements);
     }
 
     public function pop(): mixed {
         $this->counter--;
-        return $this->elements[0];
+        return array_pop($this->elements);
     }
 
     public function isEmpty(): bool {
