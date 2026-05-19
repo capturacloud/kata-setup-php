@@ -11,4 +11,4 @@ build: ## Build the PHP container.
 	UID="$(shell id -u)" GID="$(shell id -g)" docker compose build
 
 test: ## Run the tests.
-	UID="$(shell id -u)" GID="$(shell id -g)" docker compose up
+	@UID="$(shell id -u)" GID="$(shell id -g)" docker compose run --rm -e XDEBUG_MODE=off kata-setup-php
