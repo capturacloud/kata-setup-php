@@ -8,11 +8,11 @@ final class MarsRover
 {
     public function execute(string $command): string
     {
-        $currentPosition =  match ($command) {
-            'M' => '0:1:N',
-            'MM' => '0:2:N',
-            'MMM' => '0:3:N',
-            default => null,
+        $numberOfMovements = substr_count($command, 'M') % 10;
+
+        $currentPosition =  match ($numberOfMovements) {
+            0 => null,
+            default => "0:$numberOfMovements:N",
         };
 
         if ($currentPosition !== null) {
