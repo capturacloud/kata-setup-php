@@ -8,14 +8,6 @@ final class MarsRover
 {
     public function execute(string $command): string
     {
-        if ($command === 'RM') {
-            return '1:0:E';
-        }
-
-        if ($command === 'RMM') {
-            return '2:0:E';
-        }
-
         $numberOfMovements = substr_count($command, 'M') % 10;
 
         $numberOfLefts = substr_count($command, 'L');
