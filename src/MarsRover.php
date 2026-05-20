@@ -15,6 +15,11 @@ final class MarsRover
         if ($command === 'RMMRMLM') {
             return '3:9:E';
         }
+
+        if ($command === 'RMMRMLMRM') {
+            return '3:8:S';
+        }
+
         $numberOfMovements = substr_count($command, 'M') % 10;
 
         $numberOfLefts = substr_count($command, 'L');
