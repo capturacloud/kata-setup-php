@@ -8,34 +8,47 @@ final class MarsRover
 {
     public function execute(string $command): string
     {
-        if ($command === 'RMMRM') {
-            return '2:9:S';
+        $facingDirection = 'N';
+        $verticalPosition = 0;
+        $horizontalPosition = 0;
+        $leftMovements = [
+            'N'=>'W',
+            'W'=>'S',
+            'S'=>'E',
+            'E'=>'N',
+        ];
+        $rightMovements = [
+            'N'=>'E',
+            'E'=>'S',
+            'S'=>'W',
+            'W'=>'N',
+        ];
+
+        for($i = 0; $i < strlen($command); $i++) {
+            $currentCommand = $command[$i];
+            if($currentCommand === 'M') {
+                $verticalPosition = match ($facingDirection) {
+                    'N' => $verticalPosition + 1,
+                    'S' => $verticalPosition - 1,
+                    default => $verticalPosition,
+                };
+                $horizontalPosition = match ($facingDirection) {
+                    'W' => $horizontalPosition - 1,
+                    'E' => $horizontalPosition + 1,
+                    default => $horizontalPosition,
+                };
+            }
+            if ($currentCommand === 'L') {
+                $facingDirection = $leftMovements[$facingDirection];
+            }
+            if ($currentCommand === 'R') {
+                $facingDirection = $rightMovements[$facingDirection];
+            }
         }
 
-        if ($command === 'RMMRMLM') {
-            return '3:9:E';
-        }
+        $normalizedVerticalPosition = ($verticalPosition + 10) % 10;
+        $normalizedHorizontalPosition = ($horizontalPosition + 10) % 10;
 
-        if ($command === 'RMMRMLMRM') {
-            return '3:8:S';
-        }
-
-        $numberOfMovements = substr_count($command, 'M') % 10;
-
-        $numberOfLefts = substr_count($command, 'L');
-        $numberOfRights = substr_count($command, 'R');
-        $numberOfRotations = (($numberOfLefts - $numberOfRights) % 4 + 4) % 4;
-        $facingDirection = match ($numberOfRotations) {
-            1 => 'W',
-            2 => 'S',
-            3 => 'E',
-            default => 'N',
-        };
-
-        if ($command[0] !== 'M') {
-            return "$numberOfMovements:0:$facingDirection";
-        }
-
-        return "0:$numberOfMovements:$facingDirection";
+        return "$normalizedHorizontalPosition:$normalizedVerticalPosition:$facingDirection";
     }
 }
