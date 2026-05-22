@@ -9,10 +9,17 @@ use PHPUnit\Framework\TestCase;
 
 final class TetrisTest extends TestCase
 {
-    private const string O = '<<<STR
-                        ##
-                        ##
-                        STR';
+    private const array O = [
+        '##',
+        '##'
+    ];
+
+    private const array I = [
+        '#',
+        '#',
+        '#',
+        '#'
+    ];
 
     public function test_left_should_return_o_rotated_left(): void
     {

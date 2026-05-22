@@ -6,19 +6,19 @@ namespace Kata;
 
 final class Tetris
 {
-    public function left($tetromino): string
+    public function left($tetromino): array
     {
-        return '<<<STR
-                        ##
-                        ##
-                        STR';
+        return [
+            '##',
+            '##'
+        ];
     }
 
-    public function right($tetromino): string
+    public function right($tetromino): array
     {
-        return '<<<STR
-                        ##
-                        ##
-                        STR';
+        return [
+            '##',
+            '##'
+        ];
     }
 }
