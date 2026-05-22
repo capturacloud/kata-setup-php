@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace KataTests;
+
+use Kata\Tetris;
+use PHPUnit\Framework\TestCase;
+
+final class TetrisTest extends TestCase
+{
+    private const string O = '<<<STR
+                        ##
+                        ##
+                        STR';
+
+    public function test_left_should_return_o_rotated_left(): void
+    {
+        self::assertSame(self::O, new Tetris()->left(self::O));
+    }
+}
