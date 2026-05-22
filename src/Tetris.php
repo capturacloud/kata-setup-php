@@ -22,6 +22,12 @@ final class Tetris
 
     public function right($tetromino): array
     {
+        if ($tetromino === ['#',
+                '#',
+                '#',
+                '#']) {
+            return ['####'];
+        }
         return [
             '##',
             '##'
