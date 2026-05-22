@@ -25,15 +25,18 @@ final class Tetris
 
     public function right($tetromino): array
     {
-        if ($tetromino === ['#',
-                '#',
-                '#',
-                '#']) {
-            return ['####'];
+        $newTetromino = [];
+        $height = count($tetromino);
+        $width = strlen($tetromino[0]);
+
+        for($col = 0; $col < $width; $col++) {
+            $newRow = '';
+            for ($row = 0; $row < $height; $row++) {
+                $newRow .= $tetromino[$row][$col];
+            }
+            $newTetromino[] = strrev($newRow);
         }
-        return [
-            '##',
-            '##'
-        ];
+
+        return $newTetromino;
     }
 }

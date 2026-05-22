@@ -54,4 +54,13 @@ final class TetrisTest extends TestCase
     {
         self::assertSame(['####'], new Tetris()->right(self::I));
     }
+
+    public function test_right_should_return_t_rotated_right_when_given_t(): void
+    {
+        self::assertSame([
+            ' #',
+            '##',
+            ' #'
+        ], new Tetris()->right(self::T));
+    }
 }
