@@ -18,4 +18,9 @@ final class TetrisTest extends TestCase
     {
         self::assertSame(self::O, new Tetris()->left(self::O));
     }
+
+    public function test_right_should_return_o_rotated_right(): void
+    {
+        self::assertSame(self::O, new Tetris()->right(self::O));
+    }
 }

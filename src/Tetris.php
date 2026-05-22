@@ -13,4 +13,12 @@ final class Tetris
                         ##
                         STR';
     }
+
+    public function right($tetromino): string
+    {
+        return '<<<STR
+                        ##
+                        ##
+                        STR';
+    }
 }
