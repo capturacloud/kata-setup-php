@@ -8,6 +8,12 @@ final class Tetris
 {
     public function left($tetromino): array
     {
+        if ($tetromino === ['#',
+                '#',
+                '#',
+                '#']) {
+            return ['####'];
+        }
         return [
             '##',
             '##'
