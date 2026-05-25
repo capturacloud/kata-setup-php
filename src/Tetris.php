@@ -6,37 +6,36 @@ namespace Kata;
 
 final class Tetris
 {
-    public function left($tetromino): array
+    public function left(Tetromino $tetromino): Tetromino
     {
-        $newTetromino = [];
-        $height = count($tetromino);
-        $width = strlen($tetromino[0]);
+        $newTetrominoArray = [];
+        $height = count($tetromino->getBlocks());
+        $width = strlen($tetromino->getBlocks()[0]);
 
         for($col = 0; $col < $width; $col++) {
             $newRow = '';
             for ($row = 0; $row < $height; $row++) {
-                $newRow .= $tetromino[$row][$col];
+                $newRow .= $tetromino->getBlocks()[$row][$col];
             }
-            $newTetromino[] = $newRow;
+            $newTetrominoArray[] = $newRow;
         }
-
-        return array_reverse($newTetromino);
+        return $tetromino->setBlocks(array_reverse($newTetrominoArray));
     }
 
-    public function right($tetromino): array
+    public function right(Tetromino $tetromino): Tetromino
     {
         $newTetromino = [];
-        $height = count($tetromino);
-        $width = strlen($tetromino[0]);
+        $height = count($tetromino->getBlocks());
+        $width = strlen($tetromino->getBlocks()[0]);
 
         for($col = 0; $col < $width; $col++) {
             $newRow = '';
             for ($row = 0; $row < $height; $row++) {
-                $newRow .= $tetromino[$row][$col];
+                $newRow .= $tetromino->getBlocks()[$row][$col];
             }
             $newTetromino[] = strrev($newRow);
         }
 
-        return $newTetromino;
+        return $tetromino->setBlocks($newTetromino);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace KataTests;
 
 use Kata\Tetris;
+use Kata\Tetromino;
 use PHPUnit\Framework\TestCase;
 
 final class TetrisTest extends TestCase
@@ -28,39 +29,47 @@ final class TetrisTest extends TestCase
 
     public function test_left_should_return_o_rotated_left_when_given_o(): void
     {
-        self::assertSame(self::O, new Tetris()->left(self::O));
+        $tetro=Tetromino::newO();
+        self::assertSame(self::O, new Tetris()->left($tetro)->getBlocks());
     }
 
     public function test_left_should_return_i_rotated_left_when_given_i(): void
     {
-        self::assertSame(['####'], new Tetris()->left(self::I));
+        $tetro=Tetromino::newI();
+
+        self::assertSame(['####'], new Tetris()->left($tetro)->getBlocks());
     }
 
     public function test_left_should_return_t_rotated_left_when_given_t(): void
     {
+        $tetro=Tetromino::newT();
         self::assertSame([
             '# ',
             '##',
             '# '
-        ], new Tetris()->left(self::T));
+        ], new Tetris()->left($tetro)->getBlocks());
     }
 
     public function test_right_should_return_o_rotated_right_when_given_o(): void
     {
-        self::assertSame(self::O, new Tetris()->right(self::O));
+        $tetro=Tetromino::newO();
+        self::assertSame(self::O, new Tetris()->right($tetro)->getBlocks());
     }
 
     public function test_right_should_return_i_rotated_right_when_given_i(): void
     {
-        self::assertSame(['####'], new Tetris()->right(self::I));
+        $tetro=Tetromino::newI();
+        self::assertSame(['####'], new Tetris()->right($tetro)->getBlocks());
     }
 
     public function test_right_should_return_t_rotated_right_when_given_t(): void
     {
+        $tetro=Tetromino::newT();
         self::assertSame([
             ' #',
             '##',
             ' #'
-        ], new Tetris()->right(self::T));
+        ], new Tetris()->right($tetro)->getBlocks()
+        );
     }
 }
