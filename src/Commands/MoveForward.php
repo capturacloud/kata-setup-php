@@ -2,7 +2,7 @@
 
 namespace Kata\Commands;
 
-class Move
+class MoveForward
 {
 
 }
