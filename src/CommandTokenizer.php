@@ -13,15 +13,10 @@ class CommandTokenizer
     const RIGHT = 'R';
 
     public function parse(string $input): array{
-        $response = [];
-        for($i = 0; $i < strlen($input); $i++) {
-            $currentCommand = $input[$i];
-            $response [] = match ($currentCommand) {
-                self::MOVE => new MoveForward(),
-                self::LEFT => new TurnLeft(),
-                self::RIGHT => new TurnRight(),
-            };
-        }
-        return $response;
+        return array_map(fn($currentCommand)=>match ($currentCommand) {
+            self::MOVE => new MoveForward(),
+            self::LEFT => new TurnLeft(),
+            self::RIGHT => new TurnRight(),
+        }, str_split($input));
     }
 }
