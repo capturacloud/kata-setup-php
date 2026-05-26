@@ -41,4 +41,24 @@ class CommandTokenizerTest extends TestCase
         self::assertInstanceOf(MoveForward::class, $actual[3]);
         self::assertInstanceOf(TurnLeft::class, $actual[4]);
     }
+
+    public function test_given_mmrmlmmmmrrrll_should_return_a_list_of_commands():void
+    {
+        $actual = new CommandTokenizer()->parse('MMRMLMMMMRRRLL');
+        self::assertCount(14, $actual);
+        self::assertInstanceOf(MoveForward::class, $actual[0]);
+        self::assertInstanceOf(MoveForward::class, $actual[1]);
+        self::assertInstanceOf(TurnRight::class, $actual[2]);
+        self::assertInstanceOf(MoveForward::class, $actual[3]);
+        self::assertInstanceOf(TurnLeft::class, $actual[4]);
+        self::assertInstanceOf(MoveForward::class, $actual[5]);
+        self::assertInstanceOf(MoveForward::class, $actual[6]);
+        self::assertInstanceOf(MoveForward::class, $actual[7]);
+        self::assertInstanceOf(MoveForward::class, $actual[8]);
+        self::assertInstanceOf(TurnRight::class, $actual[9]);
+        self::assertInstanceOf(TurnRight::class, $actual[10]);
+        self::assertInstanceOf(TurnRight::class, $actual[11]);
+        self::assertInstanceOf(TurnLeft::class, $actual[12]);
+        self::assertInstanceOf(TurnLeft::class, $actual[13]);
+    }
 }
