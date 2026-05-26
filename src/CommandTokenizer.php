@@ -8,15 +8,15 @@ use Kata\Commands\TurnRight;
 
 class CommandTokenizer
 {
-    const MOVE = 'M';
-    const LEFT = 'L';
-    const RIGHT = 'R';
+    const COMMANDS = [MoveForward::class, TurnLeft::class, TurnRight::class];
 
     public function parse(string $input): array{
-        return array_map(fn($currentCommand)=>match ($currentCommand) {
-            self::MOVE => new MoveForward(),
-            self::LEFT => new TurnLeft(),
-            self::RIGHT => new TurnRight(),
+        return array_map(function($command){
+            foreach(self::COMMANDS as $commandClass){
+                if($commandClass::match($command)){
+                    return new $commandClass;
+                }
+            }
         }, str_split($input));
     }
 }
