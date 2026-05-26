@@ -11,4 +11,14 @@ class MoveForwardTest extends TestCase
     {
         self::assertTrue(MoveForward::match('M'));
     }
+
+    public function test_doesnt_match_l():void
+    {
+        self::assertFalse(MoveForward::match('L'));
+    }
+
+    public function test_doesnt_match_r():void
+    {
+        self::assertFalse(MoveForward::match('R'));
+    }
 }
