@@ -3,6 +3,7 @@
 namespace KataTests;
 
 use Kata\Commands\TurnLeft;
+use Kata\Commands\TurnRight;
 use Kata\CommandTokenizer;
 use Kata\Commands\Move;
 use PHPUnit\Framework\TestCase;
@@ -21,5 +22,12 @@ class CommandTokenizerTest extends TestCase
         $actual = new CommandTokenizer()->parse('L');
         self::assertCount(1, $actual);
         self::assertInstanceOf(TurnLeft::class, $actual[0]);
+    }
+
+    public function test_given_r_should_return_turn_right_command():void
+    {
+        $actual = new CommandTokenizer()->parse('R');
+        self::assertCount(1, $actual);
+        self::assertInstanceOf(TurnRight::class, $actual[0]);
     }
 }

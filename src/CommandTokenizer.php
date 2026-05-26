@@ -4,6 +4,7 @@ namespace Kata;
 
 use Kata\Commands\Move;
 use Kata\Commands\TurnLeft;
+use Kata\Commands\TurnRight;
 
 class CommandTokenizer
 {
@@ -12,9 +13,10 @@ class CommandTokenizer
     const RIGHT = 'R';
 
     public function parse(string $input): array{
-        if ($input === self::LEFT) {
-            return [new TurnLeft()];
-        }
-        return [new Move()];
+        return match ($input) {
+            self::MOVE => [new Move()],
+            self::LEFT => [new TurnLeft()],
+            self::RIGHT => [new TurnRight()],
+        };
     }
 }
