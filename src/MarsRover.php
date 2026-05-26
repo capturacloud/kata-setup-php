@@ -24,16 +24,7 @@ final class MarsRover
         for($i = 0; $i < strlen($command); $i++) {
             $currentCommand = $command[$i];
             if($currentCommand === self::MOVEMENT_COMMAND) {
-                $verticalPosition = match ($facingDirection) {
-                    CardinalDirections::North => $verticalPosition + 1,
-                    CardinalDirections::South => $verticalPosition - 1,
-                    default => $verticalPosition,
-                };
-                $horizontalPosition = match ($facingDirection) {
-                    CardinalDirections::West => $horizontalPosition - 1,
-                    CardinalDirections::East => $horizontalPosition + 1,
-                    default => $horizontalPosition,
-                };
+                list($verticalPosition, $horizontalPosition) = $this->move($facingDirection, $verticalPosition, $horizontalPosition);
             }
             if ($currentCommand === self::TURN_LEFT_COMMAND) {
                 $facingDirection = $facingDirection->turnLeft();
@@ -47,5 +38,20 @@ final class MarsRover
         $normalizedHorizontalPosition = ($horizontalPosition + self::MAP_WIDTH) % self::MAP_WIDTH;
 
         return "$normalizedHorizontalPosition:$normalizedVerticalPosition:$facingDirection->value";
+    }
+
+    public function move(CardinalDirections $facingDirection, mixed $verticalPosition, mixed $horizontalPosition): array
+    {
+        $verticalPosition = match ($facingDirection) {
+            CardinalDirections::North => $verticalPosition + 1,
+            CardinalDirections::South => $verticalPosition - 1,
+            default => $verticalPosition,
+        };
+        $horizontalPosition = match ($facingDirection) {
+            CardinalDirections::West => $horizontalPosition - 1,
+            CardinalDirections::East => $horizontalPosition + 1,
+            default => $horizontalPosition,
+        };
+        return [$verticalPosition, $horizontalPosition];
     }
 }
