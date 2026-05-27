@@ -2,7 +2,6 @@
 
 namespace KataTests\Commands;
 
-use Kata\CardinalDirections;
 use Kata\Commands\MoveForward;
 use Kata\Coordinates;
 use PHPUnit\Framework\TestCase;
@@ -37,6 +36,14 @@ class MoveForwardTest extends TestCase
         self::assertEquals(
             Coordinates::fromString('9:0:S'),
             new MoveForward()->execute(Coordinates::fromString('0:0:S'))
+        );
+    }
+
+    public function test_given_01w_executes_00w():void
+    {
+        self::assertEquals(
+            Coordinates::fromString('0:0:W'),
+            new MoveForward()->execute(Coordinates::fromString('0:1:W'))
         );
     }
 }

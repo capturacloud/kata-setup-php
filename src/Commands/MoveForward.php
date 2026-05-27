@@ -10,6 +10,7 @@ class MoveForward implements Command
 
     private const string COMMAND = 'M';
     const MAP_HEIGHT=10;
+    const MAP_WIDTH=10;
 
     public static function match(string $command): bool
     {
@@ -24,7 +25,19 @@ class MoveForward implements Command
             default => $coordinates->verticalPosition,
         };
 
+        $horizontalPosition = match ($coordinates->facingDirection) {
+            CardinalDirections::West => $coordinates->horizontalPosition - 1,
+            CardinalDirections::East => $coordinates->horizontalPosition + 1,
+            default => $coordinates->horizontalPosition,
+        };
+
         $normalizedVerticalPosition = ($verticalPosition + self::MAP_HEIGHT) % self::MAP_HEIGHT;
-        return new Coordinates($normalizedVerticalPosition, 0, $coordinates->facingDirection);
+        $normalizedHorizontalPosition = ($horizontalPosition + self::MAP_WIDTH) % self::MAP_WIDTH;
+
+        return new Coordinates(
+            $normalizedVerticalPosition,
+            $normalizedHorizontalPosition,
+            $coordinates->facingDirection
+        );
     }
 }
