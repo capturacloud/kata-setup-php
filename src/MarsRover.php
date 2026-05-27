@@ -29,13 +29,13 @@ final class MarsRover
                 $coordinates = $currentCommand->execute($coordinates);
             }
             if ($currentCommand instanceof TurnLeft) {
-                $facingDirection = $facingDirection->turnLeft();
+                $coordinates = $currentCommand->execute($coordinates);
             }
             if ($currentCommand instanceof TurnRight) {
                 $facingDirection = $facingDirection->turnRight();
             }
         }
 
-        return "$coordinates->horizontalPosition:$coordinates->verticalPosition:$facingDirection->value";
+        return "$coordinates->horizontalPosition:$coordinates->verticalPosition:{$coordinates->facingDirection->value}";
     }
 }
