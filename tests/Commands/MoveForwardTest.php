@@ -24,21 +24,11 @@ class MoveForwardTest extends TestCase
         self::assertFalse(MoveForward::match('R'));
     }
 
-    public function test_given_00n_executes_01n():void
+    public function test_given_00n_executes_10n():void
     {
-        $moveForward = new MoveForward();
-        $expectedCoordinates = new Coordinates(1, 0, CardinalDirections::North);
-        $coordinates = new Coordinates(0, 0, CardinalDirections::North);
-        self::assertEquals($expectedCoordinates, $moveForward->execute($coordinates));
+        self::assertEquals(
+            Coordinates::fromString('1:0:N'),
+            new MoveForward()->execute(Coordinates::fromString('0:0:N'))
+        );
     }
-
-    public function test_given_00n_executes_01n2():void
-    {
-        $moveForward = new MoveForward();
-        $expectedCoordinates = new Coordinates(1, 0, CardinalDirections::North);
-        $coordinates = new Coordinates(0, 0, CardinalDirections::North);
-        self::assertEquals(Coordinates::fromString(''), $moveForward->execute($coordinates));
-    }
-
-
 }
