@@ -2,7 +2,9 @@
 
 namespace KataTests\Commands;
 
+use Kata\CardinalDirections;
 use Kata\Commands\MoveForward;
+use Kata\Coordinates;
 use PHPUnit\Framework\TestCase;
 
 class MoveForwardTest extends TestCase
@@ -20,5 +22,13 @@ class MoveForwardTest extends TestCase
     public function test_doesnt_match_r():void
     {
         self::assertFalse(MoveForward::match('R'));
+    }
+
+    public function test_given_00n_executes_01n():void
+    {
+        $moveForward = new MoveForward();
+        $expectedCoordinates = new Coordinates(CardinalDirections::North, 1, 0);
+        $coordinates = new Coordinates(CardinalDirections::North, 0, 0);
+        self::assertEquals($expectedCoordinates, $moveForward->execute($coordinates));
     }
 }
