@@ -9,7 +9,7 @@ class MoveForward implements Command
 {
 
     private const string COMMAND = 'M';
-    const MAP_HEIGHT=10;
+
     const MAP_WIDTH=10;
 
     public static function match(string $command): bool

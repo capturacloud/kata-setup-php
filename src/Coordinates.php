@@ -4,11 +4,22 @@ namespace Kata;
 
 readonly class Coordinates
 {
+    const MAP_HEIGHT = 10;
+
+    public int $verticalPosition;
+    public int $horizontalPosition;
+    public CardinalDirections $facingDirection;
+
+
     public function __construct(
-        public int $verticalPosition,
-        public int $horizontalPosition,
-        public CardinalDirections $facingDirection,
-    ){}
+        int $verticalPosition,
+        int $horizontalPosition,
+        CardinalDirections $facingDirection
+    ){
+        $this->verticalPosition = ($verticalPosition + self::MAP_HEIGHT) % self::MAP_HEIGHT;
+        $this->horizontalPosition = $horizontalPosition;
+        $this->facingDirection = $facingDirection;
+    }
 
     public function toString(): string
     {
