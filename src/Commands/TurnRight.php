@@ -2,6 +2,9 @@
 
 namespace Kata\Commands;
 
+use Kata\CardinalDirections;
+use Kata\Coordinates;
+
 class TurnRight implements Command
 {
 
@@ -10,5 +13,14 @@ class TurnRight implements Command
     public static function match(string $command): bool
     {
         return $command === self::COMMAND;
+    }
+
+    public function execute(Coordinates $coordinates): Coordinates
+    {
+        return new Coordinates(
+            0,
+            0,
+            CardinalDirections::East
+        );
     }
 }
