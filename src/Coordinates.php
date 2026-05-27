@@ -9,4 +9,9 @@ class Coordinates
         public int $verticalPosition,
         public int $horizontalPosition
     ){}
+
+    public function toString(): string
+    {
+        return '0:0:N';
+    }
 }
