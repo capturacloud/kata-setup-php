@@ -20,7 +20,7 @@ class TurnRight implements Command
         return new Coordinates(
             0,
             0,
-            CardinalDirections::East
+            $coordinates->facingDirection->turnRight()
         );
     }
 }
