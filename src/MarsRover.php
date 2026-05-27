@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Kata;
 
+use Kata\Commands\MoveForward;
+use Kata\Commands\TurnLeft;
+use Kata\Commands\TurnRight;
+
 final class MarsRover
 {
     const INITIAL_HORIZONTAL_POSITION=0;
     const INITIAL_VERTICAL_POSITION=0;
     const INITIAL_FACING_DIRECTION=CardinalDirections::North;
-    const MOVEMENT_COMMAND='M';
-    const TURN_LEFT_COMMAND='L';
-    const TURN_RIGHT_COMMAND='R';
     const MAP_WIDTH=10;
     const MAP_HEIGHT=10;
 
@@ -20,16 +21,16 @@ final class MarsRover
         $facingDirection = self::INITIAL_FACING_DIRECTION;
         $verticalPosition = self::INITIAL_VERTICAL_POSITION;
         $horizontalPosition = self::INITIAL_HORIZONTAL_POSITION;
+        $commandList = new CommandTokenizer()->parse($command);
 
-        for($i = 0; $i < strlen($command); $i++) {
-            $currentCommand = $command[$i];
-            if($currentCommand === self::MOVEMENT_COMMAND) {
+        foreach($commandList as $currentCommand) {
+            if($currentCommand instanceof MoveForward) {
                 list($verticalPosition, $horizontalPosition) = $this->move($facingDirection, $verticalPosition, $horizontalPosition);
             }
-            if ($currentCommand === self::TURN_LEFT_COMMAND) {
+            if ($currentCommand instanceof TurnLeft) {
                 $facingDirection = $facingDirection->turnLeft();
             }
-            if ($currentCommand === self::TURN_RIGHT_COMMAND) {
+            if ($currentCommand instanceof TurnRight) {
                 $facingDirection = $facingDirection->turnRight();
             }
         }
