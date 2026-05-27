@@ -27,8 +27,8 @@ class MoveForwardTest extends TestCase
     public function test_given_00n_executes_01n():void
     {
         $moveForward = new MoveForward();
-        $expectedCoordinates = new Coordinates(CardinalDirections::North, 1, 0);
-        $coordinates = new Coordinates(CardinalDirections::North, 0, 0);
+        $expectedCoordinates = new Coordinates(1, 0, CardinalDirections::North);
+        $coordinates = new Coordinates(0, 0, CardinalDirections::North);
         self::assertEquals($expectedCoordinates, $moveForward->execute($coordinates));
     }
 }

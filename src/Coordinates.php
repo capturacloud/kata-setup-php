@@ -5,9 +5,9 @@ namespace Kata;
 class Coordinates
 {
     public function __construct(
-        public CardinalDirections $facingDirection,
         public int $verticalPosition,
-        public int $horizontalPosition
+        public int $horizontalPosition,
+        public CardinalDirections $facingDirection,
     ){}
 
     public function toString(): string

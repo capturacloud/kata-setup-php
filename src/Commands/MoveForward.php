@@ -17,6 +17,6 @@ class MoveForward implements Command
 
     public function execute(Coordinates $coordinates): Coordinates
     {
-        return new Coordinates(CardinalDirections::North, 1, 0);
+        return new Coordinates(1, 0, CardinalDirections::North);
     }
 }
