@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Coordinates
+readonly class Coordinates
 {
     public function __construct(
         public int $verticalPosition,

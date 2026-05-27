@@ -31,4 +31,12 @@ class MoveForwardTest extends TestCase
             new MoveForward()->execute(Coordinates::fromString('0:0:N'))
         );
     }
+
+    public function test_given_00s_executes_90s():void
+    {
+        self::assertEquals(
+            Coordinates::fromString('9:0:S'),
+            new MoveForward()->execute(Coordinates::fromString('0:0:S'))
+        );
+    }
 }
