@@ -31,4 +31,10 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates(0, 0, CardinalDirections::West);
         self::assertSame('0:0:W', $coordinates->toString());
     }
+
+    public function test_fromString_00n_return_coordinates()
+    {
+        $coordinates = new Coordinates(0, 0, CardinalDirections::North);
+        self::assertEquals($coordinates, $coordinates->fromString('0:0:N'));
+    }
 }

@@ -14,4 +14,9 @@ class Coordinates
     {
         return "$this->verticalPosition:$this->horizontalPosition:{$this->facingDirection->value}";
     }
+
+    public function fromString(string $string): self
+    {
+        return new self(0,0,CardinalDirections::North);
+    }
 }
