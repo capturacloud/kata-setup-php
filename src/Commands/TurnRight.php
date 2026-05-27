@@ -19,7 +19,7 @@ class TurnRight implements Command
     {
         return new Coordinates(
             $coordinates->verticalPosition,
-            0,
+            $coordinates->horizontalPosition,
             $coordinates->facingDirection->turnRight()
         );
     }
