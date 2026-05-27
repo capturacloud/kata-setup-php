@@ -15,7 +15,7 @@ class Coordinates
         return "$this->verticalPosition:$this->horizontalPosition:{$this->facingDirection->value}";
     }
 
-    public function fromString(string $string): self
+    public static function fromString(string $string): self
     {
         list(
             $verticalPosition,

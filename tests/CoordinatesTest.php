@@ -35,24 +35,24 @@ class CoordinatesTest extends TestCase
     public function test_fromString_00n_return_coordinates()
     {
         $coordinates = new Coordinates(0, 0, CardinalDirections::North);
-        self::assertEquals($coordinates, $coordinates->fromString('0:0:N'));
+        self::assertEquals($coordinates, Coordinates::fromString('0:0:N'));
     }
 
     public function test_fromString_10n_return_coordinates()
     {
         $coordinates = new Coordinates(1, 0, CardinalDirections::North);
-        self::assertEquals($coordinates, $coordinates->fromString('1:0:N'));
+        self::assertEquals($coordinates, Coordinates::fromString('1:0:N'));
     }
 
     public function test_fromString_01n_return_coordinates()
     {
         $coordinates = new Coordinates(0, 1, CardinalDirections::North);
-        self::assertEquals($coordinates, $coordinates->fromString('0:1:N'));
+        self::assertEquals($coordinates, Coordinates::fromString('0:1:N'));
     }
 
     public function test_fromString_00w_return_coordinates()
     {
         $coordinates = new Coordinates(0, 0, CardinalDirections::West);
-        self::assertEquals($coordinates, $coordinates->fromString('0:0:W'));
+        self::assertEquals($coordinates, Coordinates::fromString('0:0:W'));
     }
 }
