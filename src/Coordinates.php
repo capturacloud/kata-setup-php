@@ -17,7 +17,16 @@ class Coordinates
 
     public function fromString(string $string): self
     {
-        $array = explode(':',$string);
-        return new self(intval($array[0]),(intval($array[1])),CardinalDirections::from($array[2]));
+        list(
+            $verticalPosition,
+            $horizontalPosition,
+            $facingDirection
+        ) = explode(':',$string);
+
+        return new self(
+            intval($verticalPosition),
+            intval($horizontalPosition),
+            CardinalDirections::from($facingDirection)
+        );
     }
 }
