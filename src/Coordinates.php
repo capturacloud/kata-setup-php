@@ -17,6 +17,7 @@ class Coordinates
 
     public function fromString(string $string): self
     {
-        return new self(intval($string[0]),(intval($string[2])),CardinalDirections::from($string[4]));
+        $array = explode(':',$string);
+        return new self(intval($array[0]),(intval($array[1])),CardinalDirections::from($array[2]));
     }
 }
