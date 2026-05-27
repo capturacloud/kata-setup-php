@@ -12,6 +12,6 @@ class Coordinates
 
     public function toString(): string
     {
-        return "$this->verticalPosition:0:N";
+        return "$this->verticalPosition:$this->horizontalPosition:N";
     }
 }

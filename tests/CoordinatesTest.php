@@ -19,4 +19,10 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates(1, 0, CardinalDirections::North);
         self::assertSame('1:0:N', $coordinates->toString());
     }
+
+    public function test_toString_coordinates_return_string_01n()
+    {
+        $coordinates = new Coordinates(0, 1, CardinalDirections::North);
+        self::assertSame('0:1:N', $coordinates->toString());
+    }
 }
