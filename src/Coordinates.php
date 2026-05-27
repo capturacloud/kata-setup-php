@@ -5,6 +5,7 @@ namespace Kata;
 readonly class Coordinates
 {
     const MAP_HEIGHT = 10;
+    const MAP_WIDTH = 10;
 
     public int $verticalPosition;
     public int $horizontalPosition;
@@ -17,7 +18,7 @@ readonly class Coordinates
         CardinalDirections $facingDirection
     ){
         $this->verticalPosition = ($verticalPosition + self::MAP_HEIGHT) % self::MAP_HEIGHT;
-        $this->horizontalPosition = $horizontalPosition;
+        $this->horizontalPosition = ($horizontalPosition + self::MAP_WIDTH) % self::MAP_WIDTH;
         $this->facingDirection = $facingDirection;
     }
 

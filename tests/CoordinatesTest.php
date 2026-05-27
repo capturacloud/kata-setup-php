@@ -61,4 +61,10 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates(8, 0, CardinalDirections::West);
         self::assertEquals($coordinates, new Coordinates(-2, 0, CardinalDirections::West));
     }
+
+    public function test_normalized_horizontal_coordinates_in_constructor()
+    {
+        $coordinates = new Coordinates(0, 8, CardinalDirections::West);
+        self::assertEquals($coordinates, new Coordinates(0, -2, CardinalDirections::West));
+    }
 }
