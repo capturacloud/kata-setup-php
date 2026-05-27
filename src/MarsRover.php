@@ -6,9 +6,9 @@ namespace Kata;
 
 final class MarsRover
 {
-    const INITIAL_HORIZONTAL_POSITION = 0;
-    const INITIAL_VERTICAL_POSITION = 0;
-    const INITIAL_FACING_DIRECTION = CardinalDirections::North;
+    const int INITIAL_HORIZONTAL_POSITION = 0;
+    const int INITIAL_VERTICAL_POSITION = 0;
+    const CardinalDirections INITIAL_FACING_DIRECTION = CardinalDirections::North;
 
     public function execute(string $command): string
     {
