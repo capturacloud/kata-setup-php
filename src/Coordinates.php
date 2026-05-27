@@ -17,6 +17,7 @@ class Coordinates
 
     public function fromString(string $string): self
     {
-        return new self(0,0,CardinalDirections::North);
+
+        return new self(intval($string[0]),0,CardinalDirections::North);
     }
 }

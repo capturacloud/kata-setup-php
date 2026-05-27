@@ -37,4 +37,10 @@ class CoordinatesTest extends TestCase
         $coordinates = new Coordinates(0, 0, CardinalDirections::North);
         self::assertEquals($coordinates, $coordinates->fromString('0:0:N'));
     }
+
+    public function test_fromString_10n_return_coordinates()
+    {
+        $coordinates = new Coordinates(1, 0, CardinalDirections::North);
+        self::assertEquals($coordinates, $coordinates->fromString('1:0:N'));
+    }
 }
