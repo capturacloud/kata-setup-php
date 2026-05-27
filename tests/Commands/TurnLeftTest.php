@@ -38,4 +38,12 @@ class TurnLeftTest extends TestCase
             new TurnLeft()->execute(Coordinates::fromString('0:0:W'))
         );
     }
+
+    public function test_given_80s_executes_80e():void
+    {
+        self::assertEquals(
+            Coordinates::fromString('8:0:E'),
+            new TurnLeft()->execute(Coordinates::fromString('8:0:S'))
+        );
+    }
 }
