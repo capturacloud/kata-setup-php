@@ -2,6 +2,8 @@
 
 namespace Kata\Commands;
 
+use Kata\Coordinates;
+
 class TurnLeft implements Command
 {
 
