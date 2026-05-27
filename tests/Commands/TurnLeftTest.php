@@ -3,6 +3,7 @@
 namespace KataTests\Commands;
 
 use Kata\Commands\TurnLeft;
+use Kata\Coordinates;
 use PHPUnit\Framework\TestCase;
 
 class TurnLeftTest extends TestCase
@@ -20,5 +21,13 @@ class TurnLeftTest extends TestCase
     public function test_doesnt_match_r():void
     {
         self::assertFalse(TurnLeft::match('R'));
+    }
+
+    public function test_given_00n_executes_00w():void
+    {
+        self::assertEquals(
+            Coordinates::fromString('0:0:W'),
+            new TurnLeft()->execute(Coordinates::fromString('0:0:N'))
+        );
     }
 }
