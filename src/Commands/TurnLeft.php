@@ -17,6 +17,10 @@ class TurnLeft implements Command
 
     public function execute(Coordinates $coordinates): Coordinates
     {
-        return new Coordinates(0, 0, CardinalDirections::West);
+        return new Coordinates(
+            0,
+            0,
+            $coordinates->facingDirection->turnLeft()
+        );
     }
 }
